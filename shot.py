@@ -1,12 +1,13 @@
 import pygame.draw
-
+import constants
 import circleshape
 from circleshape import CircleShape
 
 
-class Asteroid(CircleShape):
-    def __init__(self, x, y, radius):
-        super().__init__(x, y, radius)
+class Shot(CircleShape):
+    def __init__(self, x, y, velocity):
+        super().__init__(x, y, constants.SHOT_RADIUS)
+        self.velocity = velocity
 
     def draw(self, screen):
         pygame.draw.circle(screen, (255, 255, 255), (int(self.position.x), int(self.position.y)), self.radius, 2)
