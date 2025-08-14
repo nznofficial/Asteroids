@@ -34,6 +34,12 @@ def main():
         updatable.update(dt)
 
         for aster in asteroids:
+            for bullet in bullets:
+                if aster.collides_with(bullet):
+                    aster.split()
+                    bullet.kill()
+
+        for aster in asteroids:
             if aster.collides_with(nzn):
                 print("Game over!")
                 sys.exit()
